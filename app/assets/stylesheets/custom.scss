@@ -51,22 +51,44 @@ p {
 }
 
 /* ヘッダー */
+.gest-login{
+  margin-top: 10px;
+}
+
+.navbar{
+  background: teal;
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  font-style: italic;
+  // text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  // color: #fff;
+   color: gray;
   text-decoration: none;
 }
+
+#nav-item {
+  color: #fff;
+  font-weight: 700;
+}
+
+#nav-item:hover {
+  color: gray;
+}
+
+
+
 
 /* デバッグウインドウ */
 

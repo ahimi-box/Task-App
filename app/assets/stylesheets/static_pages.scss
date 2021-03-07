@@ -1,3 +1,48 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* body */
+
+.left{
+  // background: pink;
+  float: left;
+  margin-top: 50px;
+  width: 50%;
+}
+.left-comment h1{
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.left-comment{
+  text-align:center; 
+}
+
+.comment{
+  padding: 0;
+}
+
+.col-md-6{
+  // background: red;
+  margin-top: 20px;
+}
+
+
+
+@media screen and (max-width: 980px){
+  
+  .left{
+    float: none;
+    width: 100%;
+  }
+  .comment{
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .col-md-6{
+    margin-top: 50px;
+    padding-top: 5px;
+  }
+}
