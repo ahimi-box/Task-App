@@ -1,0 +1,40 @@
+<% provide(:title, "管理者") %>
+
+<div class="main tasks-show">
+  <div class="container">
+    <h1>タスク詳細ページ</h1>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th class="task-th">ID</th>
+              <td><%= @task.id %></td>
+            </tr>
+            <tr>
+              <th class="task-th">名称</th>
+              <td><%= @task.name %></td>
+            </tr>
+            <tr>
+              <th class="task-th">詳細</th>
+              <td><%= @task.description %></td>
+            </tr>
+            <tr>
+              <th class="task-th">作成日</th>
+              <td><%= @task.created_at %></td>
+            </tr>
+            <tr>
+              <th class="task-th">更新日</th>
+              <td><%= @task.updated_at %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "編集", edit_user_task_path(@user,@task), class: "btn btn-success btn-lg" %>
+        <%= link_to "削除", user_task_path(@user,@task), method: :delete, class: "btn btn-danger btn-lg" %>
+        </div>
+    </div>
+    
+  </div>
+</div>
+ 
+

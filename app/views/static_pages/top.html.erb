@@ -4,15 +4,15 @@
     <h1>Task App</h1>
     <p class="comment">Task Appは簡易ToDo管理ツールです。</p>
     <p class="comment">↓↓初めてのご利用↓↓</p>
-    <!--<a class="btn btn-lg btn-success" href="#">アカウント作成</a>-->
+    <!--<a class="btn btn-lg btn-success" href="/signup">アカウント作成</a>-->
     <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
   
     <% if !logged_in? %>
     <div class="gest-login">
-      <!--<a class="btn btn-lg btn-danger" href="#">ゲストログイン(管理権限)</a>-->
-      <%= link_to "ゲストログイン(管理権限)", login_path, class: "btn btn-sm btn-danger" %>
-      <!--<a class="btn btn-lg btn-warning" href="#">ゲストログイン(一般権限)</a>-->
-      <%= link_to "ゲストログイン(一般権限)", login_path, class: "btn btn-sm btn-warning" %>
+      <!--<a class="btn btn-lg btn-danger" href="/guest-admin/login">ゲストログイン(管理権限)</a>-->
+      <%= link_to "ゲストログイン(管理権限)", login_path, class: "btn btn-danger" %>
+      <!--<a class="btn btn-lg btn-warning" href="/guest/login">ゲストログイン(一般権限)</a>-->
+      <%= link_to "ゲストログイン(一般権限)", login_path, class: "btn  btn-warning" %>
     </div>
     <% end %>
   </div>
@@ -35,7 +35,7 @@
       <span>ログイン情報を記憶する</span>
     <% end %>
 
-    <%= f.submit "Log In", class: "btn btn-primary btn-block btn-login" %>
+    <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
   <% end %>
   
 </div>

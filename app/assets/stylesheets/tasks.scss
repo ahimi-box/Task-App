@@ -1,0 +1,86 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* tasts/index */
+
+.tasts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.btn-index {
+  text-align: right;
+}
+
+.task-name {
+  width: 50%;
+}
+
+.delete-btn{
+  width: 15%;
+}
+
+.edit-btn {
+  text-align: right;
+}
+
+.task-user-name a {
+  font-weight: 600;
+}
+
+.task-user-name a:hover {
+  color: #3ecdc6;
+}
+
+.task-left {
+  float: left;
+  width: 10%;
+}
+
+.task-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+/* posts/show */
+
+.task-th{
+  text-align: center;
+  background: #EEEEEE;
+}
+
+/* tasks/new */
+
+.btn-new{
+  // text-align: center;
+  margin: 10px;
+}
+
+.tasks-new textarea {
+  font-size: 20px;
+  padding: 10px;
+  min-height: 140px;
+  border: 1px solid rgb(216, 218, 223);
+  resize: none;
+}
+
+.tasks-new textarea::-webkit-input-placeholder {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+/* tasks/edit */
+
+.btn-edit{
+  margin: 10px;
+  float: left;
+}
+
+.btn-canel{
+  margin: 10px;
+}

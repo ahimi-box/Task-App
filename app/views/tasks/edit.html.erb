@@ -1,0 +1,17 @@
+<% provide(:title, "Edit-Task") %>
+<% provide(:class_text, "edit") %>
+<% provide(:button_text, "更新") %>
+
+<div class="main tasks-edit">
+  <div class="container">
+    <h1>編集更新ページ</h1>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= render 'form' %>
+        
+        <%= link_to "キャンセル", user_tasks_path, class: "btn btn-default btn-lg btn-canel" %>
+
+      </div>
+    </div>
+  </div>
+</div>
