@@ -2,7 +2,7 @@
 
 <div class="main tasks-index">
   <div class="container">
-    <h1>管理者のタスク一覧</h1>
+    <h1><%= current_user.name %>のタスク一覧</h1>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="btn-index">
@@ -19,7 +19,7 @@
             <% @tasks.each do |task| %>
             <tr>
               <td class="task-name"><%= link_to "#{task.name}", user_task_path(@user,task.id) %></td>
-              <td><%= task.created_at %></td>
+              <td><%= l(task.created_at, format: :long) %></td>
               <td class="edit-btn"><%= link_to "編集", edit_user_task_path(@user,task.id), class: "btn btn-success" %></td>
               <td class="delete-btn"><%= link_to "削除", user_task_path(@user,task.id), method: :delete, class: "btn btn-danger" %></td>
             </tr>

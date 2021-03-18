@@ -21,11 +21,11 @@
             </tr>
             <tr>
               <th class="task-th">作成日</th>
-              <td><%= @task.created_at %></td>
+              <td><%= l(@task.created_at, format: :long) %></td>
             </tr>
             <tr>
               <th class="task-th">更新日</th>
-              <td><%= @task.updated_at %></td>
+              <td><%= l(@task.updated_at, format: :long) %></td>
             </tr>
           </tbody>
         </table>

@@ -1,5 +1,5 @@
 <%= form_with(model: [@user,@task], local: true) do |f| %>
-  <%= render 'shared/error_messages', object: @task %>
+  <%= render 'shared/taskerror_messages', object: @task %>
   
   <%= f.label "名称", class: "lable-#{yield(:class_text)}" %>
   <%= f.text_field :name, class: "form-control" %>
@@ -10,4 +10,3 @@
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg btn-#{yield(:class_text)}" %>
 
 <% end %>
-<!--@task, url: user_tasks_path-->
