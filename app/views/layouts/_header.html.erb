@@ -5,7 +5,9 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path, id: "nav-item" %></li>
         <% if logged_in? %>
-          <li><%= link_to "利用者一覧", users_path, id: "nav-item-color" %></li>
+          <% if current_user.admin? && !current_user?(@users) %>
+            <li><%= link_to "利用者一覧", users_path, id: "nav-item-color" %></li>
+          <% end %>
           <li><%= link_to "タスク作成", new_user_task_path(current_user.id), id: "nav-item-color" %></li>
           <li class="dropdown open">
             <a href="#" class="dropdown-toggle" id="dropdown-toggle-title" data-toggle="dropdown">

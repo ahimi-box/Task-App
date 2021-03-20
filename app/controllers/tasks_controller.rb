@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  # before_action :set_task, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :admin_or_correct_user, only: [:show]
   
   # 一覧ページ
   def index
@@ -72,10 +73,21 @@ class TasksController < ApplicationController
     end
     
     # paramsハッシュからユーザーを取得します。
-    # def set_task
-    #   @task = Task.find(params[:id])
+    # def set_user
+    #   @user = User.find(params[:id])
     # end
+    
+    # beforeフィルター
 
+    # 管理権限者、または現在ログインしているユーザーを許可します。
+    def admin_or_correct_user
+      @user = User.find(params[:user_id]) if @user.blank?
+      unless current_user?(@user) || current_user.admin?
+        flash[:danger] = "編集権限がありません。"
+        redirect_to(root_url)
+      end
+    end
+    
 end
 
 
