@@ -64,7 +64,8 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-
+    
+  
     # ログイン済みのユーザーか確認します。
     def logged_in_user
       unless logged_in?
@@ -84,27 +85,5 @@ class UsersController < ApplicationController
       redirect_to root_url unless current_user.admin?
     end
     
-    # def limitation_correct_user
-    #   unless @current_user.id == params[:id].to_i
-    #     flash[:notice] = "他のユーザーの編集はできません。"
-    #     redirect_to root_url
-    #   end
-    #   # @user = User.find(params[:id]) # この行に注目！！
-    #   # unless @user.user_id == @current_user.id
-    #   #   flash[:notice]= "自分以外のユーザーの投稿は編集できません。"
-    #   #   redirect_to signup_url(@user)
-    #   # end
-    #   # unless current_user.try(:admin?) && current_user?(@user)
-    #   #   redirect_to signup_url(@user)
-    #   # end
-    #   # @user = User.find(params[:id])
-    #   # @user = User.find(params[:id])
-    #   # unless @user.user_id && current_user?(@user)
-    #   #   redirect_to signup_url
-    #   # end
-    # # redirect_to signup_url @user unless current_user.try(:admin?) && current_user?(@user)
-    # # redirect_to new_user_url unless current_user.try(:admin?) && current_user?(@user)
-    # # render :new unless current_user.try(:admin?) && current_user?(@user)
-    # end
     
 end
