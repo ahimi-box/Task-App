@@ -45,7 +45,25 @@
   text-align: right;
 }
 
-@media screen and (max-width: 980px){
+.badge-admin{
+  margin-left: 10px;
+  padding: 3px, 5px;
+  background: #428bca;
+  border-radius: 5px;
+  // color: #fff;
+  // font-size: 10px;
+  // padding: 0px;
+}
+
+.badge-current-user{
+  margin-left: 10px;
+  padding: 3px, 5px;
+  background: #28a745;
+  border-radius: 5px;
+  // padding: 0px;
+}
+
+@media screen and (max-width: 765px){
   .user-table {
   width: 100%;
   }

@@ -15,8 +15,15 @@
   text-align: right;
 }
 
+.task-table{
+  td.task-td{
+    vertical-align: middle;
+  }
+}
+
 .task-name {
   width: 50%;
+  font-size: 20px;
 }
 
 .delete-btn{
@@ -54,6 +61,7 @@
   background: #EEEEEE;
 }
 
+
 /* tasks/new */
 
 .btn-new{
@@ -66,7 +74,7 @@
   padding: 10px;
   min-height: 140px;
   border: 1px solid rgb(216, 218, 223);
-  resize: none;
+  // resize: none;
 }
 
 .tasks-new textarea::-webkit-input-placeholder {

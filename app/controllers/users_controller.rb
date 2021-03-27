@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   # before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:show]
   # アクセスしたユーザーが現在ログインしているユーザーか確認します。
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :new, :update]
   # システム管理権限所有かどうか判定します。
   before_action :admin_user, only: [:indx, :destroy]
+  # 一般ユーザの場合、URLを直接入力しても遷移しない
+  before_action :authenticate_user, only: [:new]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 20)
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
     flash[:success] = "#{@user.name}のデータを削除しました。"
     redirect_to users_url
   end  
+  
 
   
   private
@@ -80,4 +83,28 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to root_url unless current_user.admin?
     end
+    
+    # def limitation_correct_user
+    #   unless @current_user.id == params[:id].to_i
+    #     flash[:notice] = "他のユーザーの編集はできません。"
+    #     redirect_to root_url
+    #   end
+    #   # @user = User.find(params[:id]) # この行に注目！！
+    #   # unless @user.user_id == @current_user.id
+    #   #   flash[:notice]= "自分以外のユーザーの投稿は編集できません。"
+    #   #   redirect_to signup_url(@user)
+    #   # end
+    #   # unless current_user.try(:admin?) && current_user?(@user)
+    #   #   redirect_to signup_url(@user)
+    #   # end
+    #   # @user = User.find(params[:id])
+    #   # @user = User.find(params[:id])
+    #   # unless @user.user_id && current_user?(@user)
+    #   #   redirect_to signup_url
+    #   # end
+    # # redirect_to signup_url @user unless current_user.try(:admin?) && current_user?(@user)
+    # # redirect_to new_user_url unless current_user.try(:admin?) && current_user?(@user)
+    # # render :new unless current_user.try(:admin?) && current_user?(@user)
+    # end
+    
 end

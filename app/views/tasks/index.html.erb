@@ -8,7 +8,7 @@
         <div class="btn-index">
           <%= link_to "タスク新規作成", new_user_task_path, class: "btn btn-primary btn-lg" %>
         </div>
-        <table class="table table-condensed table-hover">
+        <table class="table table-hover task-table">
           <thead>
             <tr>
               <th>名称</th>
@@ -18,8 +18,8 @@
           <tbody>
             <% @tasks.each do |task| %>
             <tr>
-              <td class="task-name"><%= link_to "#{task.name}", user_task_path(@user,task.id) %></td>
-              <td><%= l(task.created_at, format: :long) %></td>
+              <td class="task-name task-td"><%= link_to "#{task.name}", user_task_path(@user,task.id) %></td>
+              <td class="task-td"><%= l(task.created_at, format: :long) %></td>
               <td class="edit-btn"><%= link_to "編集", edit_user_task_path(@user,task.id), class: "btn btn-success" %></td>
               <td class="delete-btn"><%= link_to "削除", user_task_path(@user,task.id), method: :delete, class: "btn btn-danger" %></td>
             </tr>

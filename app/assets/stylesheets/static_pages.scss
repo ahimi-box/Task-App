@@ -31,15 +31,21 @@
 
 
 
-@media screen and (max-width: 980px){
+// @media screen and (max-width: 765px){
+@media screen and (max-width: 880px){
   
   .left{
     float: none;
     width: 100%;
   }
+  
   .comment{
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 20px;
+  }
+  
+  .btn-signup{
+    margin-top: -10px;
   }
   .col-md-6{
     margin-top: 50px;

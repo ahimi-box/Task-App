@@ -105,7 +105,8 @@ p {
 
 .doropdown-header{
   color: gray;
-  background: #64a4a4;
+  // background: #64a4a4;
+  background: #DDDDDD;
   padding: 5px 25px;
 }
 
@@ -136,4 +137,14 @@ p {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+@media screen and (max-width: 765px){
+
+  .doropdown-header{
+    color: gray;
+    background: #64a4a4;
+    
+  }
+  
 }
