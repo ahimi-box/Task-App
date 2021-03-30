@@ -17,7 +17,7 @@
             </tr>
             <tr>
               <th class="task-th">詳細</th>
-              <td><%= @task.description %></td>
+              <td><%= text_url_to_link(h(@task.description)).html_safe %></td>
             </tr>
             <tr>
               <th class="task-th">作成日</th>
@@ -30,8 +30,10 @@
           </tbody>
         </table>
         <%= link_to "編集", edit_user_task_path(@user,@task), class: "btn btn-success btn-lg" %>
-        <%= link_to "削除", user_task_path(@user,@task), method: :delete, class: "btn btn-danger btn-lg" %>
-        </div>
+        <% if current_user?(@user) %>
+          <%= link_to "削除", user_task_path(@user,@task), method: :delete, data:{ confirm: "削除してよろしいですか？" }, class: "btn btn-danger btn-lg" %>
+        <% end %>
+      </div>
     </div>
     
   </div>

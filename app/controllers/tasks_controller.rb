@@ -1,12 +1,14 @@
 class TasksController < ApplicationController
   # before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :admin_or_correct_user, only: [:show]
+  before_action :correct_user_new, only: [:new, :edit]
+  before_action :correct_user_edit, only: [:edit]
   
   # 一覧ページ
   def index
     @user = User.find(params[:user_id])
     # @tasks = Task.all
-    @tasks = @user.tasks.all
+    @tasks = @user.tasks.all.order(created_at: :desc)
   end
   
   # 詳細画面
@@ -50,7 +52,8 @@ class TasksController < ApplicationController
     # @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "タスクを更新しました。"
-      redirect_to user_tasks_url
+      # redirect_to user_tasks_url
+      redirect_to user_task_url
     else
       render :edit
     end
@@ -87,6 +90,25 @@ class TasksController < ApplicationController
         redirect_to(root_url)
       end
     end
+    
+    # index
+    def correct_user_new
+      @user = User.find(params[:user_id]) if @user.blank?
+      unless current_user?(@user) 
+        # flash[:danger] = "自分以外のタスク新規作成ページは表示できません。new"
+        redirect_to root_url
+      end
+    end
+    
+    # edit
+    def correct_user_edit
+      @user = User.find_by(id: params[:user_id]) if @user.blank?
+      unless @task = @user.tasks.find_by(id: params[:id])
+        flash[:danger] = "権限はありません。edit"
+        redirect_to user_tasks_url(@user, @task) 
+      end
+    end
+    
     
 end
 

@@ -21,7 +21,11 @@
               <td class="task-name task-td"><%= link_to "#{task.name}", user_task_path(@user,task.id) %></td>
               <td class="task-td"><%= l(task.created_at, format: :long) %></td>
               <td class="edit-btn"><%= link_to "編集", edit_user_task_path(@user,task.id), class: "btn btn-success" %></td>
-              <td class="delete-btn"><%= link_to "削除", user_task_path(@user,task.id), method: :delete, class: "btn btn-danger" %></td>
+              <td class="delete-btn">
+                <% if current_user?(@user) %>
+                  <%= link_to "削除", user_task_path(@user,task.id), method: :delete, data:{ confirm: "削除してよろしいですか？" }, class: "btn btn-danger" %>
+                <% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>

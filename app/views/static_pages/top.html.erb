@@ -6,6 +6,7 @@
     <p class="comment">Task Appは簡易ToDo管理ツールです。</p>
     <p class="comment">↓↓初めてのご利用↓↓</p>
     <div class="btn-signup">
+      <!--current_user.try(:admin?)-->
       <% if !current_user.try(:admin?) && !current_user?(@user) %>
        <!--一般<a class="btn btn-lg btn-success" href="/signup">アカウント作成</a>-->
        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success disabled" %>
@@ -32,16 +33,30 @@
 <div class="col-md-6">
   <h1>ログイン</h1>
   <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-
-    <%= f.label "メールアドレス", class: "label-login" %>
-    <%= f.email_field :email, class: 'form-control' %>
-
-    <%= f.label "パスワード", class: "label-login" %>
-    <%= f.password_field :password, class: 'form-control' %>
     
-    <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+    <% if logged_in? %>
+    
+      <%= f.label "メールアドレス", class: "label-login" %>
+      <%= f.email_field :email, class: 'form-control', disabled: "disabled" %>
+  
+      <%= f.label "パスワード", class: "label-login" %>
+      <%= f.password_field :password, class: 'form-control', disabled: "disabled" %>
+    
+    <% else %> 
+    
+      <%= f.label "メールアドレス", class: "label-login" %>
+      <%= f.email_field :email, class: 'form-control' %>
+  
+      <%= f.label "パスワード", class: "label-login" %>
+      <%= f.password_field :password, class: 'form-control' %>
+    
+      <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
       <%= f.check_box :remember_me, id: "remember-me" %>
       <span>ログイン情報を記憶する</span>
+      
+    <% end %>
+    
+    
     <% end %>
 
     

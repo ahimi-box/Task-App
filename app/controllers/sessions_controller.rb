@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  
+  before_action :fobid_login_user, only: [:new]
+  before_action :limitation_login_user, only: [:new]
+
   def new
   end
   
@@ -22,4 +24,6 @@ class SessionsController < ApplicationController
     flash[:success] = 'ログアウトしました。'
     redirect_to root_url
   end
+  
+
 end
