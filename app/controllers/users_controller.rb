@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   # アクセスしたユーザーが現在ログインしているユーザーか確認します。
   before_action :correct_user, only: [:edit, :update]
   # システム管理権限所有かどうか判定します。
-  before_action :admin_user, only: [:indx, :destroy]
+  before_action :admin_user, only: [:index, :destroy]
   # ログインしていない状態でのアクセス制限
   before_action :authenticate_user, only: [:index, :show, :edit, :update]
-  before_action :limitation_login_user, only: [:create, :login_page, :login]
+  before_action :limitation_login_user, only: [:create]
   # before_action :limitation_login_user, only: [:create]
-  # before_action :fobid_login_user, only: [:new]
+  before_action :fobid_login_user, only: [:new]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 20)

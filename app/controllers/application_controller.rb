@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
+ 
   #   # @user = User.find(params[:id]) if @user.blank?
   #   unless current_user?(@user) || correct_user.admin?
   #     # flash[:notice] = "権限がありません"
